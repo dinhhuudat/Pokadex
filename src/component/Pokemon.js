@@ -1,6 +1,6 @@
 import { Paper,CardHeader, Typography,Card, CardMedia, CardContent, makeStyles, Button, CircularProgress } from '@material-ui/core';
 import React,{useState,useEffect}  from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams,useHistory } from 'react-router-dom';
 import PokemonData from '../pokeData/mock';
 
 const usestyles=makeStyles({
@@ -20,9 +20,16 @@ const usestyles=makeStyles({
 
 
 function Pokemon(props) {
+
+    const[pokemon,setPokemon] = useState('')
+    const classes=usestyles()  
+    const{pokemonId}=useParams() 
+    const history=useHistory()
+
+
     useEffect(() => { 
         async function getData(){
-            const respone=await fetch(`https://pokeapi.co/api/v2/pokemon/${props.location.state.detail}`)
+            const respone=await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonId}`)
             const responeData= await respone.json()
             //  console.log(responeData)
 
@@ -31,10 +38,6 @@ function Pokemon(props) {
         getData()
     }, [])
  
-    const[pokemon,setPokemon] = useState('')
-    const classes=usestyles() 
-    const {history}=props
-      
     const rederPokemonJSX=()=>{
         
         const{name,id,species,height,weight,types}=pokemon
@@ -83,7 +86,7 @@ function Pokemon(props) {
                     variant='contained' 
                     size='large'
                     color='primary'
-                    onClick={()=>{history.push('/')}}
+                    onClick={()=>{history.push('/Pokadex')}}
                 >
                  Back To Home
                  </Button>       
@@ -93,7 +96,9 @@ function Pokemon(props) {
     }
     return (
         <>
-            {pokemon ? rederPokemonJSX() : <CircularProgress/>}
+            {pokemon ? rederPokemonJSX() : 
+                <div style={{display: 'flex' , justifyContent: 'center', width: '100%'}}><CircularProgress/></div>
+            }
         </>
     );
 }

@@ -12,6 +12,7 @@ import { AppBar ,
          Box,
          CardActionArea} from '@material-ui/core'; 
 import { Search } from '@material-ui/icons';
+import { BrowserRouter, Link ,NavLink,Route,useParams,useHistory } from "react-router-dom";
 
 
 const useStyles=makeStyles((theme)=>({
@@ -46,7 +47,7 @@ function Pokedex(props) {
     useEffect(() => 
     { 
         async function getData(){
-            const respone=await fetch('https://pokeapi.co/api/v2/pokemon?limit=100')
+            const respone=await fetch('https://pokeapi.co/api/v2/pokemon?limit=200')
             const responeData= await respone.json()
             // const {dataResponse}=json.data
             
@@ -67,7 +68,7 @@ function Pokedex(props) {
     const[pokemonData,setPokemonData]=useState([])
     const[filterString,setfilter]=useState('')
     const classes=useStyles(); 
-    const {history}=props 
+    const history=useHistory(); 
 
     // console.log ('history',history)
      
@@ -79,7 +80,7 @@ function Pokedex(props) {
             >
                 <Card>
                     <CardActionArea
-                        onClick={()=>history.push(`/${data.id}`,{detail:data.id})}
+                        onClick={()=>history.push(`/Pokadex/${data.id}`,{detail:data.id})}
                     >
                         <CardMedia 
                             className={classes.cardMediaStyle}
