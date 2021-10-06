@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/Pokadex/static/css/main.a617e044.chunk.css",
-    "main.js": "/Pokadex/static/js/main.3fd68977.chunk.js",
-    "main.js.map": "/Pokadex/static/js/main.3fd68977.chunk.js.map",
+    "main.js": "/Pokadex/static/js/main.6206fb1e.chunk.js",
+    "main.js.map": "/Pokadex/static/js/main.6206fb1e.chunk.js.map",
     "runtime-main.js": "/Pokadex/static/js/runtime-main.b386fa9c.js",
     "runtime-main.js.map": "/Pokadex/static/js/runtime-main.b386fa9c.js.map",
     "static/js/2.34f6cf1f.chunk.js": "/Pokadex/static/js/2.34f6cf1f.chunk.js",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.b386fa9c.js",
     "static/js/2.34f6cf1f.chunk.js",
     "static/css/main.a617e044.chunk.css",
-    "static/js/main.3fd68977.chunk.js"
+    "static/js/main.6206fb1e.chunk.js"
   ]
 }
